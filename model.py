@@ -32,10 +32,9 @@ class User_trip(db.Model):
     __tablename__ = "user_trips"
 
     user_trip_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    user_id # is a foreign key
-    trip_id # is a foreign key
+    user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
+    trip_id = db.Column(db.Integer, db.ForeignKey('trips.trip_id'))
 
-    # doesn't need a repr function since this table is an association table
 
 class Trip(db.Model):
 """Trip on TravelList website."""
@@ -49,29 +48,37 @@ class Trip(db.Model):
     city = db.Column(db.Integer, nullable=True)
     state = db.Column(db.String(2), nullable=True)
 
+    user = db.relationship("User",
+                             backref=db.backref("trips", order_by=trip_id))
+    activity = db.relationship("Activity",
+                                backref=db.backref("trips", order_by=trip_id))
+
+    def __repr__(self):
+        """ Provide helpful representation when printed. """
+
+        return "<Trip: trip_id={} city={} state={}>".format(self.trip_id,
+                                                        self.city, self.state)
 
 
+class Activity(db.Model):
+    """ Activities during Trip on TravelList website. """
+
+    __tablename__ = "activities"
+
+    activity_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    trip_id = db.Column(db.Integer, db.ForeignKey('trips.trip_id'))
+    name = db.Column(db.String(200), nullable=False)
+    description = db.Column(db.String(250), nullable=True)
+    date = db.Column(db.Integer, nullable=False)
+    address = db.Column(db.String(200), nullable=True)
+    zipcode =  db.Column(db.Integer, nullable=True)
 
 
+    def __repr__(self):
+        """ Provide helpful representation when printed. """
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        return "<Trip: trip__id={} activity_id={} name={} date={}>".format(self.trip_id,
+                                                        self.activity_id, self.name, self.date)
 
 
 
