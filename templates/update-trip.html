@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<html>
+  <body>
+
+    <h2> Update your existing trip? Enter the city and state to update!</h2>
+
+    <form method="POST" action="/update-trip">
+      <input type="text" name="city">
+      <input type="text" name="state">
+      <input type="submit" value="Edit">
+    </form>
+
+  </body>
+</html>
+
+{% endblock %}
