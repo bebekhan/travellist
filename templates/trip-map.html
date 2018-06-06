@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<head>
+    <style type="text/css">
+        html, body { height: 100%; margin: 0; padding: 0; }
+        #map { height: 100%; }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <!-- Google maps API -->
+    <!-- // <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script> -->
+
+    <!-- what it looks like with a key -->
+<script 
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEtBxlWamg_eBoAUrffjaDesPJPx98jQk">
+</script>
+
+    <script>
+    let map = new google.maps.Map(document.querySelector('#map'),{
+            center : { lat:37.7643148, lng:-122.3996072 },
+            zoom:5,
+            mapTypeId: 'roadmap'
+        });
+
+    // NYC Latitude‎: ‎40.730610 Longitude‎: ‎-73.935242
+    // OR Lat: 45.512231, Long: -122.658719
+    locationDetails = [[37.7643148,-122.3996072,"SF"],[40.730610,-73.935242,"NY"],[45.512231,-122.658719,"OR"]]
+
+    for (let locationDetail of locationDetails){
+
+        console.log(locationDetail)
+        // let locationDetail = locationDetails[i].split(' ');
+        let latitude = parseFloat(locationDetail[0]);
+        let longitude = parseFloat(locationDetail[1]);
+        let centerObject = new google.maps.LatLng(latitude,longitude);
+        let name = locationDetail[2];
+        console.log(name);
+        console.log(latitude);
+        console.log(longitude);
+        // console.log(centerObject);
+
+
+        let marker = new google.maps.Marker({
+         position: centerObject,
+         map: map,
+         title: TRIP
+       });
+    }
+    </script>
+
+</body>
