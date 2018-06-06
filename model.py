@@ -74,14 +74,13 @@ class Activity(db.Model):
     trip_id = db.Column(db.Integer, db.ForeignKey('trips.trip_id'))
     category = db.Column(db.String(200), nullable=False)
     description = db.Column(db.String(250), nullable=True)
-    address = db.Column(db.String(200), nullable=True)
-    zipcode =  db.Column(db.Integer, nullable=True)
+
 
     def __repr__(self):
         """ Provide helpful representation when printed. """
 
-        return "<Trip: trip_id={} activity_id={} category={} description={} address={} zipcode={}>".format(self.trip_id,
-                                                        self.activity_id, self.category, self.description, self.address, self.zipcode)
+        return "<Trip: trip_id={} activity_id={} category={} description={}>".format(self.trip_id,
+                                                        self.activity_id, self.category, self.description)
 
 
 ##############################################################################
@@ -120,21 +119,21 @@ def example_data():
 #activity table example data
 
     #new_york activities for Kanye
-    ny_activity_one = Activity(trip_id=new_york.trip_id, category='eat', description='eat pizza', address='32 Spring St', zipcode=10012)
-    ny_activity_two = Activity(trip_id=new_york.trip_id, category='play', description='play at the park', address='362 3rd Ave', zipcode=10016)
-    ny_activity_three = Activity(trip_id=new_york.trip_id, category='museums', description='visit Statue of Liberty Museum', address='New York', zipcode=10004)
+    ny_activity_one = Activity(trip_id=new_york.trip_id, category='eat', description='eat pizza')
+    ny_activity_two = Activity(trip_id=new_york.trip_id, category='play', description='play at the park')
+    ny_activity_three = Activity(trip_id=new_york.trip_id, category='museums', description='visit Statue of Liberty Museum')
 
 #san_francisco activities for DJ Khalid
 
-    sf_activity_one = Activity(trip_id=san_francisco.trip_id, category='eat', description='eat dumplings', address='1 Kearny St', zipcode=94108)
-    sf_activity_two = Activity(trip_id=san_francisco.trip_id, category='play', description='play at Urban Putt', address='1096 S Van Ness Ave', zipcode=94110)
-    sf_activity_three = Activity(trip_id=san_francisco.trip_id, category='museums', description='Visit SFMOMA', address='151 3rd St', zipcode=94103)
+    sf_activity_one = Activity(trip_id=san_francisco.trip_id, category='eat', description='eat dumplings')
+    sf_activity_two = Activity(trip_id=san_francisco.trip_id, category='play', description='play at Urban Putt')
+    sf_activity_three = Activity(trip_id=san_francisco.trip_id, category='museums', description='Visit SFMOMA')
 
 #oregon_based_activities for Snoop Dog
 
-    or_activity_one = Activity(trip_id=oregon.trip_id, category='eat', description='eat at Le Pigeon', address='738 E Burnside St', zipcode=97214)
-    or_activity_two = Activity(trip_id=oregon.trip_id, category='play', description='visit and play Washington Park', address='4033 Southwest Canyon Road', zipcode=97221)
-    or_activity_three = Activity(trip_id=oregon.trip_id, category='museums', description='visit OMSI', address='1945 SE Water Ave', zipcode=97214)
+    or_activity_one = Activity(trip_id=oregon.trip_id, category='eat', description='eat at Le Pigeon')
+    or_activity_two = Activity(trip_id=oregon.trip_id, category='play', description='visit and play Washington Park')
+    or_activity_three = Activity(trip_id=oregon.trip_id, category='museums', description='visit OMSI')
 
     db.session.add_all([kanye, djkhalid, snoop, ny_activity_one, ny_activity_two, ny_activity_three,
                          sf_activity_one, sf_activity_two, sf_activity_three, 

@@ -2,13 +2,45 @@
 {% block content %}
 
 
-
-    <h2> Check out your current trips!</h2>
-
+    <div>
+    <h2> Check out your current trips!</h2><br>
+    <ul>
+        <div id="trips">
     {% for trip in trips %}
-        <p>{{ trip.city }} {{ trip.state }}</p>
+        <p>{{ trip.city }} {{ trip.state }}</p> <a href="/user/{{ trip.trip_id }}"> Click here to add activities</a>
     {% endfor %}
+</div>
+    </ul>  
+    </div>
+    <div>
+        <ul>
+            <!-- <a href="/add-trip">Add a trip!</a><br> -->
+            <a href="/update-trip">Update a trip!</a><br>
+            <a href="/delete-trip">Delete a trip!</a><br>
+        </ul>
 
+
+    </div>  
+<!--     this is the add trip form -->
+    <div>
+    <h2> Ready to plan your trip? Click on Add Trip to get started.</h2>
+
+    <form id="add-trip" method="POST" action="/add-trip">
+      <input type="text" name="city" id="city" required>
+      <input type="text" name="state" id="state" required>
+      <input type="submit" value="Add trip">
+    </form>
+    </div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script src="/static/script.js"></script>
 
 {% endblock %}
+
+
 

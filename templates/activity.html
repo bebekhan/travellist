@@ -6,14 +6,37 @@
   <body>
     <h2> Check out your current activities per trips!</h2>
 
+    {% for activity in activities %}
+            <p>Category: {{ activity.category }} Description: {{ activity.description }}</p>
 
+    {% endfor %}            
+
+  
+    
+    <div>
     <h2> What good is a trip without activities! Click on Add activities to keep planning.</h2>
-
-    <form method="POST" action="/activities">
+    <form method="POST" action="/activities/{{ trip_id }}">
+      <select name="category">
+        <option value="Pick a category">Pick a category</option>
+        <option value="eat">Eat</option>
+        <option value="play">Play</option>
+        <option value="visit">Visit</option>
+      </select><br>
       <input type="text" name="description" required>
-      <input type="submit" value="Add">
-    </form>
+ 
+      <input type="submit" value="Add activity">
+        </form>
+    </div>
+
   </body>
 </html>
+
+
+<!-- script tag for jquery  -->
+<script>
+
+
+
+</script>
 
 {% endblock %}
