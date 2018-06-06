@@ -21,7 +21,8 @@ app.jinja_env.undefined = StrictUndefined
 def register_form():
     """Show form for user signup."""
 
-    return render_template("register.html")
+    # return render_template("register.html")
+    return redirect('/login')
 
 @app.route('/register', methods=['POST'])
 def register_process():
@@ -120,18 +121,18 @@ def view_trip():
     else:
         return render_template("user.html", trips=trips)
 
-@app.route('/trip-map', methods=['GET'])
+@app.route('/trip-map-data', methods=['GET'])
 def populate_map_iteratively():
     """Display trips on maps."""
     user_id = session.get("user_id")
     user_trips = UserTrip.query.filter_by(user_id=user_id).all()
     list_of_city_states = []
     for user_trip in user_trips:
-        list_of_city_states.append(user_trip.trip.city, user_trip.trip.state)
+        list_of_city_states.append((user_trip.trip.city + ", " + user_trip.trip.state))
 
     dict = {'locations': list_of_city_states}    
 
-    return jsonify({city:'city', state:'state'})
+    return jsonify(dict)
 
     #ABOVE IS THE TRIP API route
 
