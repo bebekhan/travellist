@@ -119,21 +119,21 @@ def example_data():
 #activity table example data
 
     #new_york activities for Kanye
-    ny_activity_one = Activity(trip_id=new_york.trip_id, category='eat', description='eat pizza')
-    ny_activity_two = Activity(trip_id=new_york.trip_id, category='play', description='play at the park')
-    ny_activity_three = Activity(trip_id=new_york.trip_id, category='museums', description='visit Statue of Liberty Museum')
+    ny_activity_one = Activity(trip_id=new_york.trip_id, category='Eat', description='Pizza in NYC')
+    ny_activity_two = Activity(trip_id=new_york.trip_id, category='Buy', description='Whatever I want!')
+    ny_activity_three = Activity(trip_id=new_york.trip_id, category='Visit', description='Statue of Liberty')
 
 #san_francisco activities for DJ Khalid
 
-    sf_activity_one = Activity(trip_id=san_francisco.trip_id, category='eat', description='eat dumplings')
-    sf_activity_two = Activity(trip_id=san_francisco.trip_id, category='play', description='play at Urban Putt')
-    sf_activity_three = Activity(trip_id=san_francisco.trip_id, category='museums', description='Visit SFMOMA')
+    sf_activity_one = Activity(trip_id=san_francisco.trip_id, category='Eat', description='eat dumplings')
+    sf_activity_two = Activity(trip_id=san_francisco.trip_id, category='Blay', description='play at Urban Putt')
+    sf_activity_three = Activity(trip_id=san_francisco.trip_id, category='Visit', description='Visit SFMOMA')
 
 #oregon_based_activities for Snoop Dog
 
-    or_activity_one = Activity(trip_id=oregon.trip_id, category='eat', description='eat at Le Pigeon')
-    or_activity_two = Activity(trip_id=oregon.trip_id, category='play', description='visit and play Washington Park')
-    or_activity_three = Activity(trip_id=oregon.trip_id, category='museums', description='visit OMSI')
+    or_activity_one = Activity(trip_id=oregon.trip_id, category='Eat', description='eat at Le Pigeon')
+    or_activity_two = Activity(trip_id=oregon.trip_id, category='Buy', description='visit and play Washington Park')
+    or_activity_three = Activity(trip_id=oregon.trip_id, category='Visit', description='visit OMSI')
 
     db.session.add_all([kanye, djkhalid, snoop, ny_activity_one, ny_activity_two, ny_activity_three,
                          sf_activity_one, sf_activity_two, sf_activity_three, 

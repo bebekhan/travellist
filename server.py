@@ -21,8 +21,8 @@ app.jinja_env.undefined = StrictUndefined
 def register_form():
     """Show form for user signup."""
 
-    # return render_template("register.html")
-    return redirect('/login')
+    return render_template("register.html")
+    # return redirect('/login')
 
 @app.route('/register', methods=['POST'])
 def register_process():
@@ -51,7 +51,8 @@ def register_process():
 
         flash("User {} added. Going forward please user your {} and password to login".format(user_name, user_email))
 #should eventually be routed to /user page to create/view trips and activites
-    return render_template('user.html')
+    # return render_template('user.html', user=new_user)
+    return redirect('/login')
 
 @app.route('/login', methods=['GET'])
 def login_form():
@@ -242,10 +243,10 @@ def add_trip():
         db.session.add(user_trip)
 
         db.session.commit()
-        print "Trip has been committed to db", new_trip
-        flash("Trip has been committed to db!")
+        # print "Trip has been committed to db", new_trip
+        # flash("Trip has been committed to db!")
 
-    return jsonify({"state":state, "city": city})
+    return jsonify({"state":state, "city": city}, trip_id=trip_id)
 
 @app.route('/update-trip', methods=['GET']) #need to walk through this function with Katie!
 def update_trip_page_view():
@@ -277,8 +278,8 @@ def update_trip():
         print "What is being updated for the new_state value: ", old_trip_query.state
     #setting commit function here to move forward with update to db.
         db.session.commit()
+        
         return redirect("/user")
-
 
     return render_template("update-trip.html", old_trip_query=old_trip_query, update_trip=update_trip)   
 
@@ -303,7 +304,11 @@ def delete_trip():
         user_trip_main = Trip.query.filter_by(trip_id=trip_lookup.trip_id).delete()
         db.session.commit()
 
-    return render_template("delete-trip.html", trip_lookup=trip_lookup)   
+        
+
+    return render_template("delete-trip.html", trip_lookup=trip_lookup) 
+
+
 
      
                   
