@@ -1,6 +1,4 @@
-# travellist
-Travel List Web Application 
-# Travel:list
+# Travel:list Web Application
 
 ## Summary
 
