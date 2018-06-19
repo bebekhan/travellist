@@ -30,5 +30,4 @@ Travel:list is an app built on a Flask server with a PostgreSQL database, with S
 ## For Version 2.0
 
 - **More input control:** Implement the ability for multiple users to collaborate on a single trip.
-- **Create trip card for each trip with the displayed image being one that the user can customize within their user dashboard.
-
+- **Upload Image for a trip:** Allow user to upload an image of their desination once a trip has been added.
