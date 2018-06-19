@@ -7,26 +7,17 @@
 
 ## About the Developer
 
-Travel:list was created by Benish Sarinelli, a software engineer in San Francisco, CA. Learn more about the developer on [LinkedIn](https://www.linkedin.com/in/bsarinelli/).
+Travel:list was created by Benish Sarinelli, a software engineer in San Francisco, CA. This is her first project.
+Visit her on [LinkedIn](https://www.linkedin.com/in/bsarinelli/).
 
 
 ## Technologies
 
 **Tech Stack:**
+- Backend: Python, Flask, PostgreSQL, SQLAlchemy, JSON
+- Frontend: JavaScript, jQuery, AJAX, Jinja2, Bootstrap, HTML5, CSS3
+- APIs: Google Maps and Google Geocode
 
-- Python
-- Flask
-- SQLAlchemy
-- Jinja2
-- HTML
-- CSS
-- Javascript
-- JQuery
-- AJAX
-- JSON
-- Bootstrap
-- Google API
-- Google Geocoding API
 
 Travel:list is an app built on a Flask server with a PostgreSQL database, with SQLAlchemy as the ORM. The front end templating uses Jinja2, the HTML was built using Bootstrap, and the Javascript uses JQuery and AJAX to interact with the backend. 
 
