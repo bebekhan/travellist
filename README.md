@@ -24,7 +24,8 @@ Travel:list is an app built on a Flask server with a PostgreSQL database, with S
 
 ## Features
 
-![alt text](https://github.com/bsarinelli/travellist/static/travellist
+![alt text](https://github.com/bsarinelli/travellist/static/travellist.gif)
+
 
 
 - **Interactive trip plotting functionality:** Once a user creates a trip entering the two required pieces of information: city and state, Google Maps API and Google Geocoding work together to dynamically update the users and maps view.
